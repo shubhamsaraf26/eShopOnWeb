@@ -37,8 +37,13 @@ stages:
       displayName: Integration Tests
       inputs:
         command: 'test'
-    projects: 'tests/IntegrationTests/*.csproj'
-    
+        projects: 'tests/IntegrationTests/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: Functional Tests
+      inputs:
+        command: 'test'
+        projects: 'tests/FunctionalTests/*.csproj'
     - task: DotNetCoreCLI@2
       displayName: Publish
       inputs:
